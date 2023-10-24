@@ -1,4 +1,6 @@
 !Build/
+.vscode/
+CPANSEC-Admin.code-workspace
 .last_cover_stats
 /META.yml
 /META.json
