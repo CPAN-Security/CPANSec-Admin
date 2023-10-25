@@ -1,3 +1,4 @@
+^shell\.nix
 ^\.git
 ^\.vscode
 CPANSEC-Admin.code-workspace
