@@ -9,7 +9,7 @@ no warnings qw(
 use Module::Load ();
 use Getopt::Long ();
 
-class CPANSEC::Admin::Command {
+class CPANSec::Admin::Command {
     field %dispatcher;
     field $config :param = {};
     field $verbosity = 1;
@@ -18,7 +18,7 @@ class CPANSEC::Admin::Command {
     method config     { $config     }
 
     method load ($name) {
-        my $pkg = 'CPANSEC::Admin::Command::' . $name;
+        my $pkg = 'CPANSec::Admin::Command::' . $name;
         Module::Load::load($pkg);
         my $obj = $pkg->new;
         $dispatcher{ $obj->name } = $obj;
@@ -30,7 +30,7 @@ class CPANSEC::Admin::Command {
         my $getopt = Getopt::Long::Parser->new( config => ['pass_through'] );
         $getopt->getoptionsfromarray(\@args, 'quiet' => \$quiet, 'version' => \$show_version );
         if ($show_version) {
-            say "cpansec-admin $CPANSEC::Admin::VERSION ($0)";
+            say "cpansec-admin $CPANSec::Admin::VERSION ($0)";
             return true;
         }
         my ($cmd_name, @cmd_args) = @args;

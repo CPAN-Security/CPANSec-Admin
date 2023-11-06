@@ -4,7 +4,7 @@ no warnings qw(
     experimental::class
 );
 
-class CPANSEC::Admin::Command::New {
+class CPANSec::Admin::Command::New {
     method name { 'new' }
 
     method command ($manager, @args) {
@@ -16,7 +16,7 @@ __END__
 
 =head1 NAME
 
-CPANSEC::Admin::Command::New - create a new custom CPANSEC advisory.
+CPANSec::Admin::Command::New - create a new custom CPANSec advisory.
 
 
 =head1 SYNOPSIS

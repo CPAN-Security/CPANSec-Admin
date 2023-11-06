@@ -1,7 +1,7 @@
 #!perl
 use v5.38;
-use CPANSEC::Admin;
-exit CPANSEC::Admin->new->run(@ARGV);
+use CPANSec::Admin;
+exit CPANSec::Admin->new->run(@ARGV);
 
 __END__
 
@@ -11,11 +11,11 @@ __END__
 
     Available commands:
 
-        show       Displays a given CPANSEC id in human-friendly format
+        show       Displays a given CPANSec id in human-friendly format
         new        Creates a new custom entry for triage
         triage     Approve/Reject advisories from triage
         cvescan    Scans CVE entries to triage for potential CPAN packages
-        publish    Assigns CPANSEC ids and publish approved advisories in OSV format
+        publish    Assigns CPANSec ids and publish approved advisories in OSV format
         help       Shows detailed help for any given command
 
     try 'cpansec-admin help <command>' for extra information regarding any

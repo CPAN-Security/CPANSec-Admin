@@ -3,13 +3,13 @@ use Test2::V0;
 
 plan 2;
 
-use CPANSEC::Admin::Command;
+use CPANSec::Admin::Command;
 
 subtest 'command without arguments' => \&test_command_without_args;
 subtest 'command with arguments'    => \&test_command_with_args;
 
 sub test_command_without_args {
-    my $cmd = CPANSEC::Admin::Command->new();
+    my $cmd = CPANSec::Admin::Command->new();
     my @args;
     my %out = $cmd->get_options(\@args, {
         'triage-dir=s'    =>  './triage',
@@ -19,7 +19,7 @@ sub test_command_without_args {
 }
 
 sub test_command_with_args {
-    my $cmd = CPANSEC::Admin::Command->new(
+    my $cmd = CPANSec::Admin::Command->new(
         config => {foo => 'bar', bar => 'baz'}
     );
 

@@ -4,7 +4,7 @@ no warnings qw(
     experimental::class
 );
 
-class CPANSEC::Admin::Command::Revoke {
+class CPANSec::Admin::Command::Revoke {
     method name { 'revoke' }
 
     method command ($manager, @args) {
@@ -16,7 +16,7 @@ __END__
 
 =head1 NAME
 
-CPANSEC::Admin::Command::Revoke - revokes and withdraws a published CPANSEC advisory.
+CPANSec::Admin::Command::Revoke - revokes and withdraws a published CPANSec advisory.
 
 
 =head1 SYNOPSIS

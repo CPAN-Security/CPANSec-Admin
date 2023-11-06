@@ -1,11 +1,11 @@
-# CPANSEC-Admin
+# CPANSec-Admin
 
 CPAN Advisory DB Admin Utility.
 
 The `cpansec-admin` CLI app is an administrative utility for maintaining
 the [CPAN Advisory Database](https://github.com/CPAN-Security/cpan-advisory-database).
 
-Unless you are a CPANSEC maintainer, you don't need to install or use
+Unless you are a CPANSec maintainer, you don't need to install or use
 this distribution at all.
 
 ### License and Copyright

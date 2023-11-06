@@ -1,13 +1,13 @@
 ^shell\.nix
 ^\.git
 ^\.vscode
-CPANSEC-Admin.code-workspace
+CPANSec-Admin.code-workspace
 ^[^/]+\.p[lm]$
 ^ignore.txt
 ^_build
 ^Build$
 ^blib
-^CPANSEC-Admin
+^CPANSec-Admin
 ~$
 \.bak$
 cover_db

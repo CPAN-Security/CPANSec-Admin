@@ -7,9 +7,9 @@ no warnings qw(
 
 use Net::NVD;
 use Path::Tiny;
-use CPANSEC::Admin::Util;
+use CPANSec::Admin::Util;
 
-class CPANSEC::Admin::Command::CVEScan {
+class CPANSec::Admin::Command::CVEScan {
     field %options;
 
     method name { 'cvescan' }
@@ -68,7 +68,7 @@ class CPANSEC::Admin::Command::CVEScan {
     sub _save_for_triage ($opts, $candidates) {
         my $basedir = Path::Tiny::path( $opts->{'triage_dir'} );
         foreach my $candidate (@$candidates) {
-            CPANSEC::Admin::Util::triage_write($basedir->child($candidate->[1]) . '.yml', $candidate);
+            CPANSec::Admin::Util::triage_write($basedir->child($candidate->[1]) . '.yml', $candidate);
         }
     }
 
@@ -139,7 +139,7 @@ __END__
 
 =head1 NAME
 
-CPANSEC::Admin::Command::CVEScan - Scans CVE entries for potential CPAN packages
+CPANSec::Admin::Command::CVEScan - Scans CVE entries for potential CPAN packages
 
 =head1 SYNOPSIS
 
@@ -154,33 +154,33 @@ This command scans CVE entries to triage for potential CPAN packages.
 =head1 ARGUMENTS
 
     -q, --quiet               Silence all output, except for errors. Can
-                              also be set via the CPANSEC_QUIET environment
+                              also be set via the CPANSec_QUIET environment
                               variable.
 
     --triage-dir=<path>       Use a custom path for the triage (destination)
                               folder. Defaults to "./triage". Can also be set
-                              via the CPANSEC_TRIAGE_DIR environment variable.
+                              via the CPANSec_TRIAGE_DIR environment variable.
 
     --index-file=<path>       Reads the given file for a single line
                               containing the index of the last visited CVE.
                               Defaults to the "last_visited_index" file inside
                               the specified triage folder. Can also be set via
-                              the CPANSEC_INDEX_FILE environment variable.
+                              the CPANSec_INDEX_FILE environment variable.
 
     --from=<index>            Start scan from an index other than the one
                               defined by "--index-file". Can also be set via
-                              the CPANSEC_FROM environment variable.
+                              the CPANSec_FROM environment variable.
 
     --limit=<value>           Limit the amount of CVEs to fetch. Defaults to
                               the NVD server-side limit, currently at 2K. Can
-                              also be set via the CPANSEC_LIMIT environment
+                              also be set via the CPANSec_LIMIT environment
                               variable.
 
     --ignore=<path>           Reads a file containing a list of CVE entries to
                               ignore when scanning. Can also be set via the
-                              CPANSEC_IGNORE environment variable.
+                              CPANSec_IGNORE environment variable.
 
     --no-index-update         Use this flag to prevent the index file from
                               being updated at the end of the scan. Can also
-                              be set via the CPANSEC_NO_INDEX_UPDATE
+                              be set via the CPANSec_NO_INDEX_UPDATE
                               environment variable.

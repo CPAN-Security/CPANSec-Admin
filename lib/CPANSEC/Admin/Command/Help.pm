@@ -5,7 +5,7 @@ no warnings 'experimental::class';
 use Pod::Usage ();
 use Pod::Find  ();
 
-class CPANSEC::Admin::Command::Help {
+class CPANSec::Admin::Command::Help {
     method name { 'help' }
 
     method command ($manager, $cmd_name = undef, @args) {
@@ -38,7 +38,7 @@ __END__
 
 =head1 NAME
 
-CPANSEC::Admin::Command::Help - Display help information about cpansec-admin
+CPANSec::Admin::Command::Help - Display help information about cpansec-admin
 
 =head1 SYNOPSIS
 

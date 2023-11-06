@@ -7,7 +7,7 @@ no warnings qw(
 
 use Path::Tiny ();
 
-package CPANSEC::Admin::Util {
+package CPANSec::Admin::Util {
 
     sub triage_read ($filepath) {
         $filepath = Path::Tiny::path($filepath) if !ref $filepath;

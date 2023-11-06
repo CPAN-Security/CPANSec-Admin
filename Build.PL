@@ -4,7 +4,7 @@ use warnings;
 use Module::Build;
 my $build = Module::Build->new(
     module_name => 'CPANSec-Admin',
-    dist_version_from => 'lib/CPANSEC/Admin.pm',
+    dist_version_from => 'lib/CPANSec/Admin.pm',
     dynamic_config => 0,
     license  => 'perl',
     script_files => 'script/cpansec-admin',
@@ -12,8 +12,8 @@ my $build = Module::Build->new(
         x_static_install => 1,
         resources => {
             license     => 'http://dev.perl.org/licenses/',
-            bugtracker  => 'https://github.com/CPAN-Security/CPANSEC-Admin/issues/',
-            repository  => 'https://github.com/CPAN-Security/CPANSEC-Admin',
+            bugtracker  => 'https://github.com/CPAN-Security/CPANSec-Admin/issues/',
+            repository  => 'https://github.com/CPAN-Security/CPANSec-Admin',
         }
     },
     test_requires => {

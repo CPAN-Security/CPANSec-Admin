@@ -4,7 +4,7 @@ no warnings qw(
     experimental::class
 );
 
-class CPANSEC::Admin::Command::Amend {
+class CPANSec::Admin::Command::Amend {
     method name { 'amend' }
 
     method command ($manager, @args) {
@@ -16,7 +16,7 @@ __END__
 
 =head1 NAME
 
-CPANSEC::Admin::Command::Amend - edits and amends a published CPANSEC advisory.
+CPANSec::Admin::Command::Amend - edits and amends a published CPANSec advisory.
 
 
 =head1 SYNOPSIS

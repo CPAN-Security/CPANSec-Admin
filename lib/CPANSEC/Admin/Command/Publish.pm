@@ -9,11 +9,11 @@ no warnings qw(
 
 use Time::Piece;
 use Path::Tiny ();
-use CPANSEC::Admin::Util;
+use CPANSec::Admin::Util;
 use JSON ();
 use List::Util ();
 
-class CPANSEC::Admin::Command::Publish {
+class CPANSec::Admin::Command::Publish {
     field %options;
     my $current_id;
     my $time = gmtime;
@@ -38,7 +38,7 @@ class CPANSEC::Admin::Command::Publish {
     }
 
     method _process_file ($manager, $file) {
-        my %data = CPANSEC::Admin::Util::triage_read($file)->@*;
+        my %data = CPANSec::Admin::Util::triage_read($file)->@*;
         if (!$data{approved} || $data{approved} ne 'true') {
             $manager->info("report $file is not approved yet, please use 'triage' first") unless $options{all};
             return;
@@ -52,14 +52,14 @@ class CPANSEC::Admin::Command::Publish {
     }
 
     sub _find_last_used_id($published_dir) {
-        my ($file) = sort { $b <=> $a } Path::Tiny::path($published_dir)->children(qr/\ACPANSEC\-\d+\-\d+\.json\z/);
-        my ($year, $id) = $file =~ /\ACPANSEC\-(\d+)\-(\d+)\.json\z/;
+        my ($file) = sort { $b <=> $a } Path::Tiny::path($published_dir)->children(qr/\ACPANSec\-\d+\-\d+\.json\z/);
+        my ($year, $id) = $file =~ /\ACPANSec\-(\d+)\-(\d+)\.json\z/;
         $id = 0 if $year < $time->year;
         return $id + 1;
     }
 
     sub _triage2osv (%data) {
-        my $id = sprintf('CPANSEC-%04d-%04d', $time->year, $current_id);
+        my $id = sprintf('CPANSec-%04d-%04d', $time->year, $current_id);
         return {
             schema_version => '1.6.0',
             id             => $id,
@@ -194,7 +194,7 @@ __END__
 
 =head1 NAME
 
-CPANSEC::Admin::Command::Publish - handles advisories ready for publishing
+CPANSec::Admin::Command::Publish - handles advisories ready for publishing
 
 =head1 SYNOPSIS
 
@@ -204,7 +204,7 @@ CPANSEC::Admin::Command::Publish - handles advisories ready for publishing
 =head1 DESCRIPTION
 
 This command takes approved advisories from triage, converts them to the
-OSV JSON format, assigns them a unique CPANSEC-YYYY-NNNN identifier and
+OSV JSON format, assigns them a unique CPANSec-YYYY-NNNN identifier and
 moves them to the published folder.
 
 =head1 ARGUMENTS
@@ -215,10 +215,10 @@ moves them to the published folder.
 
     --triage-dir=<path>       Use a custom path for the triage (source)
                               folder. Defaults to "./triage". Can also be set
-                              via the CPANSEC_TRIAGE_DIR environment variable.
+                              via the CPANSec_TRIAGE_DIR environment variable.
                               This option is ignored when you pass specific
                               file paths instead of --all.
 
     --published-dir=<path>    Use a custom path for the published (destination)
                               folder. Defaults to "./advisories". Can also be set
-                              via the CPANSEC_PUBLISHED_DIR environment variable.
+                              via the CPANSec_PUBLISHED_DIR environment variable.

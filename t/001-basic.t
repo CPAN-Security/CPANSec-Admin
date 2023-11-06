@@ -3,8 +3,8 @@ use Test2::V0;
 
 plan 3;
 
-use CPANSEC::Admin;
-pass 'CPANSEC::Admin loaded successfully';
+use CPANSec::Admin;
+pass 'CPANSec::Admin loaded successfully';
 
-ok my $app = CPANSEC::Admin->new, 'able to instantiate';
+ok my $app = CPANSec::Admin->new, 'able to instantiate';
 can_ok $app, 'run';
